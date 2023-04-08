@@ -169,6 +169,14 @@ else:
     rangeY1 = win[0][1]-10
     if ((win[2][1]+10+win[2][3])-(win[0][1]-10))%2 == 1:
         rangeY1 = rangeY1-1
+        
+print(f"{rangeX1} {rangeX2} {rangeY1} {rangeY2}")
+
+corners = np.array([[2900,2067],[2910,1970],[2920, 1971],[2910,2068]])
+
+cv2.fillPoly(dilation, pts = [corners], color =(255,255,255))
+
+cv2.imwrite("withunder.jpg",dilation)
 
 
 cropped_img = dilation[rangeY1:rangeY2,rangeX1:rangeX2]
